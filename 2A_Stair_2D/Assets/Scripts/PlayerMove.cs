@@ -43,14 +43,14 @@ public class PlayerMove : MonoBehaviour
         {
             if (MoveType == false)
             {
-                PlayerX = PlayerX -= 1;
-                PlayerY = PlayerY += 1;
+                PlayerX = PlayerX -= 0.7f;
+                PlayerY = PlayerY += 0.2f;
                 ScoreManager.score++;
             }
             else
             {
-                PlayerX = PlayerX += 1;
-                PlayerY = PlayerY += 1;
+                PlayerX = PlayerX += 0.7f;
+                PlayerY = PlayerY += 0.2f;
                 ScoreManager.score++;
             }
              
