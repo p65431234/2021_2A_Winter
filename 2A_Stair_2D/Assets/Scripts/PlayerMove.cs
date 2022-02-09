@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public GameObject Player;
-    private SpriteRenderer rend;
+    public GameObject Chara1;
+    public GameObject Chara2;
     protected bool MoveType = true; // true = right, false = left
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
-        rend.flipX = false;
+        if (CharaButton.CharaNumber == 1)
+        {
+            Chara1.SetActive(true);
+        }
+        if (CharaButton.CharaNumber == 2)
+        {
+            Chara2.SetActive(true);
+        }
+        
     }
 
     void Move()
@@ -31,12 +39,12 @@ public class PlayerMove : MonoBehaviour
             if (MoveType)
             {
                 MoveType = false;
-                rend.flipX = true;
+                PlayerY = 180;
             }
             else
             {
                 MoveType = true;
-                rend.flipX = false;
+                PlayerY = 0;
             }
         }
         if (Input.GetKeyDown(KeyCode.Space))

@@ -1,39 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharaButton : MonoBehaviour
 {
+    public GameObject Panel;
+    public GameObject Button1;
+    public GameObject Button2;
 
-    private GameObject Cam;
-    private GameObject Panel;
-
-    private float CamX;
-    private float CamY;
-    private float CamZ;
+    public static int CharaNumber = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cam = GameObject.Find("Main Camera");
-        Panel = GameObject.Find("CharaList");
     }
 
     // Update is called once per frame
     void Update()
     {
-        ClickButton();
+       
     }
 
-    void ClickButton()
+    public void CharaButton_Click()
     {
-        CamX = Panel.transform.position.x;
-        CamY = Panel.transform.position.y;
-        CamZ = Panel.transform.position.z;
-
-        Cam.transform.position = new Vector3(CamX, CamY, CamZ);
+        Panel.SetActive(true);
+        Button1.SetActive(false);
+        Button2.SetActive(false);
     }
 
+    public void PlayButton_Click()
+    {
+        SceneManager.LoadScene("PlayScene");
+    }
 
+    public void ExitButton_Click()
+    {
+        Panel.SetActive(false);
+        Button1.SetActive(true);
+        Button2.SetActive(true);
+    }
+    
+    public void Chara1Button()
+    {
+        CharaNumber = 1;
+        Panel.SetActive(false);
+        Button1.SetActive(true);
+        Button2.SetActive(true);
+    }
+
+    public void Chara2Button()
+    {
+        CharaNumber = 2;
+        Panel.SetActive(false);
+        Button1.SetActive(true);
+        Button2.SetActive(true);
+    }
 
 }
